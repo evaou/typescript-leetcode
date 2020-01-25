@@ -14,4 +14,4 @@ Solve leetcode problems with typescript
 
         $ npm run tsc
 
-5. right click js file to submit onto leetcode
+5. use [vscode-leetcode](https://github.com/jdneo/vscode-leetcode) to submit compiled js file onto leetcode

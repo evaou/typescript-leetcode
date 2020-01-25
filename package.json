@@ -1,13 +1,13 @@
 {
-  "name": "Leetcode",
+  "name": "leetcode",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
-    "node": "node js/*"
+    "tsc": "tsc --watch"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
