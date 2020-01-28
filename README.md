@@ -15,3 +15,18 @@ Solve leetcode problems with typescript
         $ npm run tsc
 
 5. use [vscode-leetcode](https://github.com/jdneo/vscode-leetcode) to submit compiled js file onto leetcode
+
+## Problem Solving
+
+### Guideline
+1. understand problem
+2. explore examples
+3. break down
+4. solve
+5. refactor
+
+### Pattern
+- frequency counter
+- multiple pointers
+- sliding window
+- divide and conquer
