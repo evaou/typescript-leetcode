@@ -1,4 +1,4 @@
 node_modules
-*/*.map
+**/*.map
 .vscode
 package-lock.json
