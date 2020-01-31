@@ -1,0 +1,5 @@
+function power(x: number, n: number): number {
+    if (n === 0) return 1;
+
+    return x * power(x,  n-1);
+}
