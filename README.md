@@ -30,3 +30,8 @@ Solve leetcode problems with typescript
 - multiple pointers
 - sliding window
 - divide and conquer
+
+## Algorithm
+
+### Recursion
+- call the same function with different input until reaching ending base case
