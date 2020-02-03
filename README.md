@@ -35,3 +35,9 @@ Solve leetcode problems with typescript
 
 ### Recursion
 - call the same function with different input until reaching ending base case
+
+### Linear Search
+- check every element of an array
+
+### Binary Search
+- eliminate half elements of a sorted array
