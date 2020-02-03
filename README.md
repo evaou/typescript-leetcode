@@ -33,6 +33,12 @@ Solve leetcode problems with typescript
 
 ## Algorithm
 
+### Time Complexcity
+| Algorithm       | Best       | Average     | Worst         |
+| :-------------: | :--------: | :---------: | :-----------: |
+| Linear Search   | *O(1)*     | *O(n)*      | *O(n)         |
+| Binary Search   | *O(1)*     | *O(log n)*  | *O(log n)*    |
+
 ### Recursion
 - call the same function with different input until reaching ending base case
 
