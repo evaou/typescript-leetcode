@@ -36,7 +36,7 @@ Solve leetcode problems with typescript
 ### Time Complexcity
 | Algorithm       | Best       | Average     | Worst         |
 | :-------------: | :--------: | :---------: | :-----------: |
-| Linear Search   | *O(1)*     | *O(n)*      | *O(n)         |
+| Linear Search   | *O(1)*     | *O(n)*      | *O(n)*        |
 | Binary Search   | *O(1)*     | *O(log n)*  | *O(log n)*    |
 
 ### Recursion
