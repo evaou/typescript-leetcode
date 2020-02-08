@@ -38,12 +38,19 @@ Solve leetcode problems with typescript
 | :-------------: | :--------: | :---------: | :-----------: |
 | Linear Search   | *O(1)*     | *O(n)*      | *O(n)*        |
 | Binary Search   | *O(1)*     | *O(log n)*  | *O(log n)*    |
+| Bubble Sort     | *O(1)*     | *O(n^2)*    | *O(n^2)*    |
 
 ### Recursion
 - call the same function with different input until reaching ending base case
+
+### Sorting
+- rearrange collection items to be ordered
 
 ### Linear Search
 - check every element of an array
 
 ### Binary Search
 - eliminate half elements of a sorted array
+
+### Bubble Sort
+- bubble up the largest value to the top
