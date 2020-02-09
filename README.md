@@ -40,6 +40,7 @@ Solve leetcode problems with typescript
 | Binary Search   | *O(1)*     | *O(log n)*  | *O(log n)*    |
 | Bubble Sort     | *O(n)*     | *O(n^2)*    | *O(n^2)*      |
 | Selection Sort  | *O(n)*     | *O(n^2)*    | *O(n^2)*      |
+| Insertion Sort  | *O(n)*     | *O(n^2)*    | *O(n^2)*      |
 
 ### Recursion
 - call the same function with different input until reaching ending base case
@@ -58,3 +59,6 @@ Solve leetcode problems with typescript
 
 ### Selection Sort
 - select the index of the smallest unsorted value and then swap it with the first unsorted index
+
+### Insertion Sort
+- insert unsorted element onto the appropriate place of sorted array
