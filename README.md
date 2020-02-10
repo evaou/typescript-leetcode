@@ -42,7 +42,7 @@ Solve leetcode problems with typescript
 | Insertion Sort  | *O(n)*        | *O(n^2)*      | *O(n^2)*      | *O(1)*        |
 | Selection Sort  | *O(n^2)*      | *O(n^2)*      | *O(n^2)*      | *O(1)*        |
 | Merge Sort      | *O(n log n)*  | *O(n log n)*  | *O(n log n)*  | *O(n)*        |
-| Quick Sort      | *O(n log n)*  | *O(n log n)*  | *O(^2)*       | *O(log n)*    |
+| Quick Sort      | *O(n log n)*  | *O(n log n)*  | *O(n^2)*      | *O(log n)*    |
 
 ### Recursion
 - call the same function with different input until reaching ending base case
@@ -69,4 +69,4 @@ Solve leetcode problems with typescript
 - split input array onto two equal sub arrays until sub array length is less than two, and then merge sub arrays
 
 ### Quick Sort
-- use pivot value to split input array onto two sub arrays in place until sub array length is less than two
+- use pivot value to rearrange input array in place until sub array length is less than two
