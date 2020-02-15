@@ -43,6 +43,10 @@ Solve leetcode problems with typescript
 | Selection Sort  | *O(n^2)*      | *O(n^2)*      | *O(n^2)*      | *O(1)*        |
 | Merge Sort      | *O(n log n)*  | *O(n log n)*  | *O(n log n)*  | *O(n)*        |
 | Quick Sort      | *O(n log n)*  | *O(n log n)*  | *O(n^2)*      | *O(log n)*    |
+| Radix Sort      | *O(nk)*       | *O(nk)*       | *O(nk)*       | *O(n+k)*      |
+
+- n: length of array
+- k: number of digits
 
 ### Recursion
 - call the same function with different input until reaching ending base case
@@ -56,17 +60,22 @@ Solve leetcode problems with typescript
 ### Binary Search
 - eliminate half elements of a sorted array
 
-### Bubble Sort
+### Comparison Sort
+
+#### Bubble Sort
 - bubble up the largest value to the top
 
-### Insertion Sort
+#### Insertion Sort
 - insert unsorted element onto the appropriate place of sorted array
 
-### Selection Sort
+#### Selection Sort
 - select the index of the smallest unsorted value and then swap it with the first unsorted index
 
-### Merge Sort
+#### Merge Sort
 - split input array onto two equal sub arrays until sub array length is less than two, and then merge sub arrays
 
-### Quick Sort
+#### Quick Sort
 - use pivot value to rearrange input array in place until sub array length is less than two
+
+### Radix Sort
+- rearrange list of numbers from right most digit to left
