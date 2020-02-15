@@ -54,10 +54,10 @@
  * @return {number}
  */
 var search = function (nums, target) {
-    var startIdx = 0;
-    var endIdx = nums.length - 1;
+    let startIdx = 0;
+    let endIdx = nums.length - 1;
     while (startIdx <= endIdx) {
-        var middleIdx = Math.floor((startIdx + endIdx) / 2);
+        let middleIdx = Math.floor((startIdx + endIdx) / 2);
         if (nums[middleIdx] === target) {
             return middleIdx;
         }

@@ -1,12 +1,7 @@
 "use strict";
-function areThereDuplicates() {
-    var inputs = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        inputs[_i] = arguments[_i];
-    }
-    var frqObj = {};
-    for (var _a = 0, inputs_1 = inputs; _a < inputs_1.length; _a++) {
-        var chr = inputs_1[_a];
+function areThereDuplicates(...inputs) {
+    let frqObj = {};
+    for (let chr of inputs) {
         if (chr in frqObj) {
             frqObj[chr] += 1;
         }
@@ -15,7 +10,7 @@ function areThereDuplicates() {
         }
     }
     // loop thru frequency object to see if any value is > 1
-    for (var chr in frqObj) {
+    for (let chr in frqObj) {
         if (frqObj[chr] > 1) {
             return true;
         }

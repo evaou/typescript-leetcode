@@ -5,16 +5,16 @@ function maxSubarraySum(arr, size) {
         return null;
     }
     // set initial begin and end index with distance of size
-    var beginIdx = 0;
-    var endIdx = size - 1;
+    let beginIdx = 0;
+    let endIdx = size - 1;
     // set current sum as 0
-    var curSum = 0;
-    var tmpSum = 0;
+    let curSum = 0;
+    let tmpSum = 0;
     // ensure end index is less than array length
     while (endIdx < arr.length) {
         // calculate tmp sum
         if (beginIdx === 0) {
-            for (var i = beginIdx; i <= endIdx; i++) {
+            for (let i = beginIdx; i <= endIdx; i++) {
                 tmpSum += arr[i];
             }
         }

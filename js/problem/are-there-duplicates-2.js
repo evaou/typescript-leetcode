@@ -1,16 +1,12 @@
 "use strict";
-function areThereDuplicates2() {
-    var inputs = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        inputs[_i] = arguments[_i];
-    }
-    var sortedInputs = inputs.sort(function (a, b) { return (a < b ? -1 : 1); });
+function areThereDuplicates2(...inputs) {
+    let sortedInputs = inputs.sort((a, b) => (a < b ? -1 : 1));
     if (sortedInputs.length < 2) {
         return false;
     }
     // set pointers for the first two items
-    var idx1 = 0;
-    var idx2 = 1;
+    let idx1 = 0;
+    let idx2 = 1;
     // loop the two adjacent pointers thru sorted inputs 
     while (idx2 < sortedInputs.length) {
         // return true if values are the same

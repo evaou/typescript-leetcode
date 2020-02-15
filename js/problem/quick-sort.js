@@ -1,15 +1,14 @@
 "use strict";
 function swap(arr, i, j) {
-    var tmpValue = arr[i];
+    let tmpValue = arr[i];
     arr[i] = arr[j];
     arr[j] = tmpValue;
 }
-function pivot(arr, startIdx, endIdx, targetIdx) {
-    if (targetIdx === void 0) { targetIdx = startIdx; }
-    var initialPivotIdx = targetIdx;
-    var pivotIdx = startIdx;
-    var pivotValue = arr[initialPivotIdx];
-    for (var i = startIdx; i <= endIdx; i++) {
+function pivot(arr, startIdx, endIdx, targetIdx = startIdx) {
+    let initialPivotIdx = targetIdx;
+    let pivotIdx = startIdx;
+    let pivotValue = arr[initialPivotIdx];
+    for (let i = startIdx; i <= endIdx; i++) {
         if (pivotValue > arr[i]) {
             swap(arr, pivotIdx, i);
             pivotIdx++;
@@ -20,11 +19,9 @@ function pivot(arr, startIdx, endIdx, targetIdx) {
     }
     return pivotIdx;
 }
-function quickSort(arr, startIdx, endIdx) {
-    if (startIdx === void 0) { startIdx = 0; }
-    if (endIdx === void 0) { endIdx = arr.length - 1; }
+function quickSort(arr, startIdx = 0, endIdx = arr.length - 1) {
     if (startIdx < endIdx) {
-        var pivotIdx = pivot(arr, startIdx, endIdx);
+        let pivotIdx = pivot(arr, startIdx, endIdx);
         quickSort(arr, startIdx, pivotIdx - 1);
         quickSort(arr, pivotIdx + 1, endIdx);
     }

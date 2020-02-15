@@ -5,14 +5,14 @@ function averagePair(arr, target) {
         return false;
     }
     // get target sum
-    var targetSum = target * 2;
+    let targetSum = target * 2;
     // set two indexes to the first and last item
-    var idx1 = 0;
-    var idx2 = arr.length - 1;
+    let idx1 = 0;
+    let idx2 = arr.length - 1;
     // ensure index1 is less than index2
     while (idx1 < idx2) {
         // get sum of values at index1 and index2
-        var tmpSum = arr[idx1] + arr[idx2];
+        let tmpSum = arr[idx1] + arr[idx2];
         // if sum is equal to target sum
         if (tmpSum === targetSum) {
             // return true

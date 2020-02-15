@@ -49,9 +49,8 @@ var isAnagram = function (s, t) {
     if (s.length !== t.length) {
         return false;
     }
-    var sObj = {};
-    for (var _i = 0, s_1 = s; _i < s_1.length; _i++) {
-        var char = s_1[_i];
+    let sObj = {};
+    for (let char of s) {
         if (char in sObj) {
             sObj[char] += 1;
         }
@@ -59,9 +58,8 @@ var isAnagram = function (s, t) {
             sObj[char] = 1;
         }
     }
-    var tObj = {};
-    for (var _a = 0, t_1 = t; _a < t_1.length; _a++) {
-        var char = t_1[_a];
+    let tObj = {};
+    for (let char of t) {
         if (char in tObj) {
             tObj[char] += 1;
         }
@@ -69,7 +67,7 @@ var isAnagram = function (s, t) {
             tObj[char] = 1;
         }
     }
-    for (var char in sObj) {
+    for (let char in sObj) {
         if (!(char in tObj)) {
             return false;
         }

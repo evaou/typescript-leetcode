@@ -2,9 +2,9 @@
 function collectStrings(obj) {
     if (Object.keys(obj).length === 0)
         return [];
-    var result = [];
-    for (var key in obj) {
-        var value = obj[key];
+    let result = [];
+    for (let key in obj) {
+        let value = obj[key];
         if (typeof value === 'object') {
             result = result.concat(collectStrings(value));
         }
@@ -14,7 +14,7 @@ function collectStrings(obj) {
     }
     return result;
 }
-var inputObj = {
+const inputObj = {
     stuff: "foo",
     data: {
         val: {

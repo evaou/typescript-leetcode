@@ -2,9 +2,9 @@
 function insertionSort(arr) {
     if (arr.length < 2)
         return arr;
-    for (var i = 1; i < arr.length; i++) {
-        var insertedValue = arr[i];
-        var j = i;
+    for (let i = 1; i < arr.length; i++) {
+        let insertedValue = arr[i];
+        let j = i;
         while (j > 0 && insertedValue < arr[j - 1]) {
             arr[j] = arr[j - 1];
             j--;

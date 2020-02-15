@@ -1,6 +1,6 @@
 "use strict";
 function linearSearch(arr, target) {
-    for (var index in arr) {
+    for (let index in arr) {
         if (arr[index] === target)
             return +index;
     }

@@ -1,8 +1,8 @@
 "use strict";
 function stringifyNumbers(obj) {
-    var newObj = JSON.parse(JSON.stringify(obj));
-    for (var key in newObj) {
-        var value = newObj[key];
+    let newObj = JSON.parse(JSON.stringify(obj));
+    for (let key in newObj) {
+        let value = newObj[key];
         if (typeof value === 'object') {
             newObj[key] = stringifyNumbers(value);
         }
@@ -12,7 +12,7 @@ function stringifyNumbers(obj) {
     }
     return newObj;
 }
-var obj = {
+let obj = {
     num: 1,
     test: [],
     data: {

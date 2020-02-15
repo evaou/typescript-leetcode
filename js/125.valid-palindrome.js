@@ -43,11 +43,11 @@
 var isPalindrome = function (s) {
     if (s.length <= 1)
         return true;
-    var firstIdx = 0;
+    let firstIdx = 0;
     while (!s[firstIdx].match(/[a-zA-Z0-9]/) && firstIdx < s.length - 1) {
         firstIdx++;
     }
-    var lastIdx = s.length - 1;
+    let lastIdx = s.length - 1;
     while (!s[lastIdx].match(/[a-zA-Z0-9]/) && lastIdx > firstIdx) {
         lastIdx--;
     }

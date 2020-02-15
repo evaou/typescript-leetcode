@@ -2,11 +2,11 @@
 function capitalizeFirst(arr) {
     if (arr.length === 0)
         return arr;
-    var newArr = [];
-    var newStr = arr[0].toLowerCase();
+    let newArr = [];
+    let newStr = arr[0].toLowerCase();
     newStr = newStr.charAt(0).toUpperCase() + newStr.slice(1);
     newArr.push(newStr);
-    var tmpArr = capitalizeFirst(arr.slice(1));
+    let tmpArr = capitalizeFirst(arr.slice(1));
     newArr = newArr.concat(tmpArr);
     return newArr;
 }

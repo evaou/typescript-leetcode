@@ -1,16 +1,16 @@
 "use strict";
 function sameFrequency(num1, num2) {
-    var str1 = num1.toString();
-    var str2 = num2.toString();
+    let str1 = num1.toString();
+    let str2 = num2.toString();
     // return false if number length is different
     if (str1.length !== str2.length) {
         return false;
     }
-    var frqObj = {};
+    let frqObj = {};
     // loop each digit in the first number
-    for (var idx = 0; idx < str1.length; idx++) {
+    for (let idx = 0; idx < str1.length; idx++) {
         // if digit exists in object, add 1
-        var chr = str1.charAt(idx);
+        let chr = str1.charAt(idx);
         if (chr in frqObj) {
             frqObj[chr] += 1;
         }
@@ -20,8 +20,8 @@ function sameFrequency(num1, num2) {
         }
     }
     // loop each digit in the second number
-    for (var idx = 0; idx < str2.length; idx++) {
-        var chr = str2.charAt(idx);
+    for (let idx = 0; idx < str2.length; idx++) {
+        let chr = str2.charAt(idx);
         // if digit exisits in object
         if (chr in frqObj) {
             // if value > 0, minus 1

@@ -50,14 +50,14 @@
  * @return {number}
  */
 var reverse = function (x) {
-    var signed = 1;
+    let signed = 1;
     if (x < 0) {
         signed = -1;
     }
-    var value = x * signed;
-    var newValue = 0;
+    let value = x * signed;
+    let newValue = 0;
     while (value > 0) {
-        var digit = value % 10;
+        let digit = value % 10;
         value = (value - digit) / 10;
         if (newValue === 0 && digit === 0) {
             continue;
@@ -65,8 +65,8 @@ var reverse = function (x) {
         newValue = newValue * 10 + digit;
     }
     newValue *= signed;
-    var maxValue = Math.pow(2, 31) - 1;
-    var minValue = -1 * Math.pow(2, 31);
+    let maxValue = Math.pow(2, 31) - 1;
+    let minValue = -1 * Math.pow(2, 31);
     if (newValue > maxValue || newValue < minValue) {
         newValue = 0;
     }

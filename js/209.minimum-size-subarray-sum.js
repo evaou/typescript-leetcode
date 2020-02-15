@@ -40,11 +40,11 @@
  */
 var minSubArrayLen = function (s, nums) {
     // set window sum, start,  and end index as 0
-    var wSum = 0;
-    var wStart = 0;
-    var wEnd = 0;
+    let wSum = 0;
+    let wStart = 0;
+    let wEnd = 0;
     // set window length as infinity 
-    var wLen = Infinity;
+    let wLen = Infinity;
     // loop as window start index is less than nums length
     while (wStart < nums.length) {
         // if window sum is less than target and end index is less than nums length

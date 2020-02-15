@@ -57,11 +57,11 @@
  */
 var lengthOfLongestSubstring = function (s) {
     // set initial substring length as 0
-    var subLen = 0;
+    let subLen = 0;
     // set substring's start and end index as 0
-    var subStart = 0;
-    var subEnd = 0;
-    var subFrqObj = {};
+    let subStart = 0;
+    let subEnd = 0;
+    let subFrqObj = {};
     // loop as start index is less than string length
     while (subStart < s.length) {
         // check if end index is less than string length and substring character frquency is not repeated

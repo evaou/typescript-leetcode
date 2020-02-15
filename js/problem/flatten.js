@@ -2,11 +2,10 @@
 function flatten(arr) {
     if (arr.length === 0)
         return arr;
-    var newArr = [];
-    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-        var item = arr_1[_i];
+    let newArr = [];
+    for (let item of arr) {
         if (Array.isArray(item)) {
-            var tmpArr = flatten(item);
+            let tmpArr = flatten(item);
             newArr = newArr.concat(tmpArr);
         }
         else {
