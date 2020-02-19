@@ -79,3 +79,16 @@ Solve leetcode problems with typescript
 
 ### Radix Sort
 - rearrange list of numbers from right most digit to left
+
+## Data Structure
+- collection of values, which have relationship and applied operations
+
+### Worst Time Complexcity
+| Data Structure     | Insertion     | Removal       | Searching     | Access        |
+| :----------------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| Singly Linked List | *O(1)*        | head *O(1)*, tail *O(n)* | *O(n)* |  *O(n)* |
+
+### Singly Linked List
+- consist of nodes, each node has a value and a pointer to another node or null
+- has head, tail, length property
+- head insertion and deletion is better than array
