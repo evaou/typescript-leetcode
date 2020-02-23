@@ -88,6 +88,7 @@ Solve leetcode problems with typescript
 | :----------------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | Singly Linked List | *O(1)*        | head *O(1)*, tail *O(n)* | *O(n)* |  *O(n)*   |
 | Doubly Linked List | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
+| Stack              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
@@ -98,3 +99,7 @@ Solve leetcode problems with typescript
 - have pointers to previous and next nodes
 - take half time to find node
 - take more memory for extra pointer
+
+### Stack
+- Last In First Out
+- add or remove from the beginning of singly linked list
