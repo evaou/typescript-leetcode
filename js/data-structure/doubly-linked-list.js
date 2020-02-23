@@ -15,50 +15,30 @@ var dataStructure;
             this.length = 0;
         }
         push(val) {
-            let node = new Node(val);
-            if (this.length === 0) {
-                this.head = node;
-                this.tail = node;
+            let newNode = new Node(val);
+            if (!this.head) {
+                this.head = newNode;
+                this.tail = newNode;
             }
             else {
-                this.tail.next = node;
-                node.prev = this.tail;
-                this.tail = node;
+                this.tail.next = newNode;
+                newNode.prev = this.tail;
+                this.tail = newNode;
             }
             this.length++;
             return this;
         }
         pop() {
-            if (!this.head)
-                return null;
-            let result = this.tail;
-            if (this.length === 1) {
+            if (!this.tail)
+                return undefined;
+            let node = this.tail;
+            this.tail = this.tail.prev;
+            node.prev = null;
+            if (!this.tail) {
                 this.head = null;
-                this.tail = null;
-            }
-            else {
-                this.tail = this.tail.prev;
-                this.tail.next = null;
             }
             this.length--;
-            result.prev = null;
-            return result;
-        }
-        shift() {
-            if (!this.head)
-                return null;
-            let result = this.head;
-            if (this.length === 1) {
-                this.head = null;
-                this.tail = null;
-            }
-            else {
-                this.head = this.head.next;
-                this.head.prev = null;
-                result.next = null;
-            }
-            this.length--;
-            return result;
+            return node;
         }
         unshift(val) {
             let newNode = new Node(val);
@@ -72,14 +52,35 @@ var dataStructure;
                 this.head = newNode;
             }
             this.length++;
+            return this;
+        }
+        shift() {
+            if (!this.head) {
+                return undefined;
+            }
+            let node = this.head;
+            this.head = this.head.next;
+            if (this.head) {
+                this.head.prev = null;
+            }
+            else {
+                this.tail = null;
+            }
+            node.next = null;
+            this.length--;
+            return node;
         }
         get(index) {
             if (index < 0 || index >= this.length)
                 return null;
-            let halfIndex = Math.floor(this.length / 2);
+            if (index === 0)
+                return this.head;
+            if (index === this.length - 1)
+                return this.tail;
+            let midIndex = this.length / 2;
             let count;
             let node;
-            if (index <= halfIndex && this.head) {
+            if (index <= midIndex) {
                 count = 0;
                 node = this.head;
                 while (count !== index) {
@@ -98,11 +99,30 @@ var dataStructure;
             return node;
         }
         set(index, val) {
-            let node = this.get(index);
-            if (!node)
+            if (index < 0 || index >= this.length)
                 return false;
+            let node = this.get(index);
             node.val = val;
             return true;
+        }
+        remove(index) {
+            if (index < 0 || index >= this.length)
+                return undefined;
+            if (index === 0)
+                return this.shift();
+            if (index === this.length - 1)
+                return this.pop();
+            let node = this.get(index);
+            if (!node)
+                return undefined;
+            let preNode = node.prev;
+            let nextNode = node.next;
+            node.prev = null;
+            node.next = null;
+            preNode.next = nextNode;
+            nextNode.prev = preNode;
+            this.length--;
+            return node;
         }
         insert(index, val) {
             if (index < 0 || index > this.length)
@@ -115,50 +135,37 @@ var dataStructure;
             }
             else {
                 let newNode = new Node(val);
-                let targetNode = this.get(index);
-                let preNode = targetNode.prev;
-                newNode.next = targetNode;
-                targetNode.prev = newNode;
+                let node = this.get(index);
+                let preNode = node.prev;
                 preNode.next = newNode;
                 newNode.prev = preNode;
+                newNode.next = node;
+                node.prev = newNode;
                 this.length++;
             }
             return true;
         }
-        remove(index) {
-            if (index < 0 || index > this.length)
-                return false;
-            if (index === 0) {
-                this.shift();
-            }
-            else if (index === this.length) {
-                this.pop();
-            }
-            else {
-                let node = this.get(index);
-                let preNode = node.prev;
-                let nextNode = node.next;
-                preNode.next = nextNode;
-                nextNode.prev = preNode;
-                node.next = null;
-                node.prev = null;
-            }
-            return true;
-        }
-        print() {
+        reverse() {
+            if (this.length <= 1)
+                return this;
+            let tmpNode;
+            tmpNode = this.head;
+            this.head = this.tail;
+            this.tail = tmpNode;
             let curNode = this.head;
-            let arr = [];
-            while (curNode != null) {
-                arr.push(curNode.val);
-                curNode = curNode.next;
+            let nextNode = curNode.next;
+            let preNode = curNode.prev;
+            while (curNode != this.tail) {
+                curNode.prev = nextNode;
+                curNode.next = preNode;
+                nextNode = curNode;
+                curNode = preNode;
+                preNode = preNode.prev;
             }
-            console.log(arr);
+            curNode.prev = nextNode;
+            curNode.next = preNode;
+            return this;
         }
     }
-    let list = new DoublyLinkedList();
-    list.push(3);
-    list.push("yes");
-    list.push("abc");
-    list.print();
 })(dataStructure || (dataStructure = {}));
 //# sourceMappingURL=doubly-linked-list.js.map

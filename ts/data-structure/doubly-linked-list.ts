@@ -1,13 +1,10 @@
 namespace dataStructure {
-  type NodeValue = number | string;
-  type Pointer = Node | null;
-
   class Node {
-    val: NodeValue;
-    next: Pointer;
-    prev: Pointer;
+    val: number;
+    next: Node | null;
+    prev: Node | null;
 
-    constructor(val: NodeValue) {
+    constructor(val: number) {
       this.val = val;
       this.next = null;
       this.prev = null;
@@ -15,8 +12,8 @@ namespace dataStructure {
   }
 
   class DoublyLinkedList {
-    head: Pointer;
-    tail: Pointer;
+    head: Node | null;
+    tail: Node | null;
     length: number;
 
     constructor() {
@@ -25,16 +22,16 @@ namespace dataStructure {
       this.length = 0;
     }
 
-    push(val: NodeValue): DoublyLinkedList {
-      let node = new Node(val);
+    push(val: number): DoublyLinkedList {
+      let newNode = new Node(val);
 
-      if (this.length === 0) {
-        this.head = node;
-        this.tail = node;
+      if (!this.head) {
+        this.head = newNode;
+        this.tail = newNode;
       } else {
-        this.tail!.next = node;
-        node.prev = this.tail;
-        this.tail = node;
+        this.tail!.next = newNode;
+        newNode.prev = this.tail;
+        this.tail = newNode;
       }
 
       this.length++;
@@ -42,43 +39,24 @@ namespace dataStructure {
       return this;
     }
 
-    pop(): Node | null {
-      if (!this.head) return null;
+    pop(): Node | undefined {
+      if (!this.tail) return undefined;
 
-      let result = this.tail;
-      if (this.length === 1) {
+      let node = this.tail;
+      this.tail = this.tail.prev;
+      node.prev = null;
+      if (!this.tail) {
         this.head = null;
-        this.tail = null;
-      } else {
-        this.tail = this.tail!.prev;
-        this.tail!.next = null;
       }
 
       this.length--;
-      result!.prev = null;
 
-      return result;
+      return node;
     }
 
-    shift(): Node | null {
-      if (!this.head) return null;
-
-      let result = this.head;
-      if (this.length === 1) {
-        this.head = null;
-        this.tail = null;
-      } else {
-        this.head = this.head.next;
-        this.head!.prev = null;
-        result.next = null;
-      }
-
-      this.length--;
-      return result;
-    }
-
-    unshift(val: NodeValue) {
+    unshift(val: number): DoublyLinkedList {
       let newNode = new Node(val);
+
       if (!this.head) {
         this.head = newNode;
         this.tail = newNode;
@@ -89,17 +67,40 @@ namespace dataStructure {
       }
 
       this.length++;
+
+      return this;
+    }
+
+    shift(): Node | undefined {
+      if (!this.head) {
+        return undefined;
+      }
+
+      let node = this.head;
+      this.head = this.head.next;
+      if (this.head) {
+        this.head.prev = null;
+      } else {
+        this.tail = null;
+      }
+
+      node.next = null;
+      this.length--;
+
+      return node;
     }
 
     get(index: number): Node | null {
       if (index < 0 || index >= this.length) return null;
+      if (index === 0) return this.head;
+      if (index === this.length - 1) return this.tail;
 
-      let halfIndex = Math.floor(this.length / 2);
+      let midIndex = this.length / 2;
       let count: number;
       let node: Node;
-      if (index <= halfIndex && this.head) {
+      if (index <= midIndex) {
         count = 0;
-        node = this.head;
+        node = this.head!;
         while (count !== index) {
           node = node.next!;
           count++;
@@ -116,14 +117,35 @@ namespace dataStructure {
       return node;
     }
 
-    set(index: number, val: NodeValue): boolean {
+    set(index: number, val: number): boolean {
+      if (index < 0 || index >= this.length) return false;
+
       let node = this.get(index);
-      if (!node) return false;
-      node.val = val;
+      node!.val = val;
+
       return true;
     }
 
-    insert(index: number, val: NodeValue): boolean {
+    remove(index: number): Node | undefined {
+      if (index < 0 || index >= this.length) return undefined;
+      if (index === 0) return this.shift();
+      if (index === this.length - 1) return this.pop();
+
+      let node = this.get(index);
+      if (!node) return undefined;
+      
+      let preNode = node.prev;
+      let nextNode = node.next;
+      node.prev = null;
+      node.next = null;
+      preNode!.next = nextNode;
+      nextNode!.prev = preNode;
+      this.length--;
+
+      return node;
+    }
+
+    insert(index: number, val: number): boolean {
       if (index < 0 || index > this.length) return false;
 
       if (index === 0) {
@@ -132,54 +154,43 @@ namespace dataStructure {
         this.push(val);
       } else {
         let newNode = new Node(val);
-        let targetNode = this.get(index);
-        let preNode = targetNode!.prev;
-        newNode.next = targetNode;
-        targetNode!.prev = newNode;
+        let node = this.get(index); 
+        let preNode = node!.prev;
         preNode!.next = newNode;
         newNode.prev = preNode;
+        newNode.next = node;
+        node!.prev = newNode;
+
         this.length++;
       }
 
       return true;
     }
 
-    remove(index: number): boolean {
-      if (index < 0 || index > this.length) return false;
+    reverse(): DoublyLinkedList {
+      if (this.length <= 1) return this;
 
-      if (index === 0) {
-        this.shift();
-      } else if (index === this.length) {
-        this.pop();
-      } else {
-        let node = this.get(index);
-        let preNode = node!.prev;
-        let nextNode = node!.next;
-        preNode!.next = nextNode;
-        nextNode!.prev = preNode;
-        node!.next = null;
-        node!.prev = null;
-      }
+      let tmpNode: Node;
+      tmpNode = this.head!;
+      this.head = this.tail;
+      this.tail = tmpNode;
 
-      return true;
-    }
-
-    print() {
       let curNode = this.head;
-      let arr: NodeValue[] = [];
+      let nextNode = curNode!.next;
+      let preNode = curNode!.prev;
 
-      while (curNode != null) {
-        arr.push(curNode.val);
-        curNode = curNode.next;
+      while (curNode != this.tail) {
+        curNode!.prev = nextNode;
+        curNode!.next = preNode;
+        nextNode = curNode;
+        curNode = preNode;
+        preNode = preNode!.prev;
       }
 
-      console.log(arr);
-    }
-  }
+      curNode!.prev = nextNode;
+      curNode!.next = preNode;
 
-  let list = new DoublyLinkedList();
-  list.push(3);
-  list.push("yes");
-  list.push("abc");
-  list.print();
+      return this;
+    }                              
+  }
 }
