@@ -150,13 +150,5 @@ var dataStructure;
     list.push(99);
     list.traverse();
     list.reverse();
-    console.log("---");
-    list.traverse();
-    /*
-    console.log(list.pop());
-    console.log(list.pop());
-    console.log(list.pop());
-    console.log(list.pop());
-    */
 })(dataStructure || (dataStructure = {}));
 //# sourceMappingURL=singly-linked-list.js.map

@@ -86,9 +86,15 @@ Solve leetcode problems with typescript
 ### Worst Time Complexcity
 | Data Structure     | Insertion     | Removal       | Searching     | Access        |
 | :----------------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| Singly Linked List | *O(1)*        | head *O(1)*, tail *O(n)* | *O(n)* |  *O(n)* |
+| Singly Linked List | *O(1)*        | head *O(1)*, tail *O(n)* | *O(n)* |  *O(n)*   |
+| Doubly Linked List | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
 - has head, tail, length property
 - head insertion and deletion is better than array
+
+### Doubly Linked List
+- have pointers to previous and next nodes
+- take half time to find node
+- take more memory for extra pointer
