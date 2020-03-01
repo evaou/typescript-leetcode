@@ -90,6 +90,7 @@ Solve leetcode problems with typescript
 | Doubly Linked List | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 | Stack              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 | Queue              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
+| Binary Search Tree | *O(log n)*    |               | *O(log n)*    |               |
 
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
@@ -109,3 +110,18 @@ Solve leetcode problems with typescript
 - First In First Out
 - add after the last node
 - remove from the first node
+
+### Tree
+- consist of nodes in a parent/child relationship
+- root, child, parent
+- siblings: group of nodes with the same parent
+- leaf: node without child
+- edge: connection between two nodes
+
+#### Binary Tree
+- parent node has at most two children
+
+#### Binary Search Tree
+- left nodes are smaller than or equal to parent one
+- right nodes greater than parent one
+- root selection matters performance
