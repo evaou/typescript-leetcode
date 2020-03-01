@@ -125,3 +125,20 @@ Solve leetcode problems with typescript
 - left nodes are smaller than or equal to parent one
 - right nodes greater than parent one
 - root selection matters performance
+
+#### Breadth First Search
+- need more space to track nodes
+
+#### Depth First Search
+- need less space to track nodes
+
+##### PreOrder
+- node > left > right
+- export tree structure for easy reconstructured or copied
+
+##### PostOrder
+- left > right > node
+
+##### InOrder
+- left > node > right
+- get nodes in their underlying order
