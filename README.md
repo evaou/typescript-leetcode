@@ -142,3 +142,18 @@ Solve leetcode problems with typescript
 ##### InOrder
 - left > node > right
 - get nodes in their underlying order
+
+#### Heap
+- is as compact as possible
+- left child is filled first
+- no ordering between siblings
+- for priority queue, graph traversal
+- parent node at array index *n*, left node at *2n+1*, right node at *2n+2*
+- child node at array index *n*, parent node at *floor((n-1)/2)*
+- sink down: delete root, replace with last item, and swap with larger child
+
+##### MaxBinaryHeap
+- parent nodes are larger than child ones
+
+##### MinBinaryHeap
+- parent nodes are smaller than child ones
