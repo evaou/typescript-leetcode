@@ -91,6 +91,7 @@ Solve leetcode problems with typescript
 | Stack              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 | Queue              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 | Binary Search Tree | *O(log n)*    |               | *O(log n)*    |               |
+| Binary Heap        | *O(log n)*    | *O(log n)*    | *O(n)*        |               |
 
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
@@ -144,16 +145,18 @@ Solve leetcode problems with typescript
 - get nodes in their underlying order
 
 #### Heap
-- is as compact as possible
+- as compact as possible
 - left child is filled first
 - no ordering between siblings
-- for priority queue, graph traversal
+- easily represent with an array
 - parent node at array index *n*, left node at *2n+1*, right node at *2n+2*
 - child node at array index *n*, parent node at *floor((n-1)/2)*
-- sink down: delete root, replace with last item, and swap with larger child
+- sink down: delete root, replace with last item, and swap with larger/smaller child
+- for graph traversal
 
 ##### MaxBinaryHeap
 - parent nodes are larger than child ones
 
 ##### MinBinaryHeap
 - parent nodes are smaller than child ones
+- priority queue: lower number means higher priority
