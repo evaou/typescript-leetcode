@@ -92,6 +92,7 @@ Solve leetcode problems with typescript
 | Queue              | *O(1)*        | *O(1)*        | *O(n)*        |  *O(n)*       |
 | Binary Search Tree | *O(log n)*    |               | *O(log n)*    |               |
 | Binary Heap        | *O(log n)*    | *O(log n)*    | *O(n)*        |               |
+| Hash Table         | *O(1)*        | *O(1)*        |               |  *O(1)*       |
 
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
@@ -160,3 +161,16 @@ Solve leetcode problems with typescript
 ##### MinBinaryHeap
 - parent nodes are smaller than child ones
 - priority queue: lower number means higher priority
+
+### Hash Table
+- store key-value pairs
+- keys are not ordered
+- key (hash function)> array index > array stores key-value pairs
+- js has objects and maps
+- hash function
+  - fast with constant time (min)
+  - distribute uniformly (multiply prime number)
+  - deterministic (same input yields same output)
+- collision
+  - separate chaining (store multiple key-value pairs at the same index)
+  - linear probing (find next empty slot)
