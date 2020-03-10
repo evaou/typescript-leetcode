@@ -94,6 +94,18 @@ Solve leetcode problems with typescript
 | Binary Heap        | *O(log n)*    | *O(log n)*    | *O(n)*        |               |
 | Hash Table         | *O(1)*        | *O(1)*        |               |  *O(1)*       |
 
+- |V|: number of vertices
+- |E|: number of edges
+
+| Operation         | Adjacency List      | Adjacency Matrix |
+| :--------------:  | :-----------------: | :--------------: |
+| Add Vertex        | *O(1)*              | *O(\|V^2\|)*     |
+| Add Edge          | *O(1)*              | *O(1)*           |
+| Remove Vertex     | *O(\|V\| + \|E\|)*  | *O(\|V^2\|)*     |
+| Remove Edge       | *O(\|E\|)*          | *O(1)*           |
+| Query             | *O(\|V\| + \|E\|)*  | *O(1)*           |
+| Storage           | *O(\|V\| + \|E\|)*  | *O(\|V^2\|)*     |
+
 ### Singly Linked List
 - consist of nodes, each node has a value and a pointer to another node or null
 - has head, tail, length property
@@ -174,3 +186,15 @@ Solve leetcode problems with typescript
 - collision
   - separate chaining (store multiple key-value pairs at the same index)
   - linear probing (find next empty slot)
+
+### Graph
+- consist of a finite set of nodes
+- undirected/directed graph: a set of unordered/ordered pairs of nodes
+- term
+  - vertex: a node
+  - edge: connection between nodes
+  - weighted/unweighted: value on the distance of nodes
+  - directed/undirected; direction on the distance of nodes
+- storing
+  - adjacency matrix
+  - adjacency list
