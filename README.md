@@ -1,6 +1,11 @@
 # Typescript Leetcode
 Solve leetcode problems with typescript
 
+- [Step](#step)
+- [Problem Solving](#problem-solving)
+- [Algorithm](#algorithm)
+- [Data Structure](#data-structure)
+
 ## Step
 1. use [vscode-leetcode](https://github.com/jdneo/vscode-leetcode) to generate initial js file including problem description in comment
 
