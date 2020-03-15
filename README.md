@@ -85,6 +85,9 @@ Solve leetcode problems with typescript
 ### Radix Sort
 - rearrange list of numbers from right most digit to left
 
+### Dijkstras's Algorithm
+- find the shortest path between two vertices
+
 ## Data Structure
 - collection of values, which have relationship and applied operations
 
