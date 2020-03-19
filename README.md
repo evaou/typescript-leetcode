@@ -88,6 +88,14 @@ Solve leetcode problems with typescript
 ### Dijkstras's Algorithm
 - find the shortest path between two vertices
 
+### Dynamic Programming
+- divide and conquer
+- overlapping subproblems: can break down the problem onto subproblems reused several time
+- optimal substructure: optimal solution can be constructed from its subproblems' one.
+
+#### Memorization
+- store and then return cached result for the same input
+
 ## Data Structure
 - collection of values, which have relationship and applied operations
 
