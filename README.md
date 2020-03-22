@@ -96,6 +96,11 @@ Solve leetcode problems with typescript
 #### Memorization
 - store and then return cached result for the same input
 
+#### Tabulation
+- store previous result in a table
+- use iteration and has better space complexity
+- bottom up
+
 ## Data Structure
 - collection of values, which have relationship and applied operations
 
