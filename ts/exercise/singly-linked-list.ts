@@ -145,6 +145,37 @@ namespace exercise {
       currentNode.val = value;
       return true;
     }
+
+    remove(index: number): Node | undefined {
+      let curNode: Node | null;
+      let preNode: Node | null = null;
+      let curIdx: number = 0;
+
+      if (this.length === 0 || index < 0 || index >= this.length) {
+        return undefined;
+      }
+
+      curNode = this.head;
+
+      while (curIdx < this.length && curNode) {
+        if (curIdx === index) {
+          break;
+        }
+        curIdx++;
+        preNode = curNode;
+        curNode = curNode.next;
+      }
+
+      if (preNode) {
+        preNode.next = curNode!.next;
+      } else {
+        this.head = curNode!.next;
+      }
+      curNode!.next = null;
+      this.length--;
+
+      return curNode!;
+    }
   }
 
   let sll = new SinglyLinkedList();
@@ -153,8 +184,10 @@ namespace exercise {
     .push(10)
     .push(15)
     .push(20);
-  console.log(sll.insert(2, 12));
-  console.log(sll.insert(100, 12));
-  console.log(sll.insert(5, 25));
-  console.log("");
+  console.log(sll.remove(2)?.val);
+  console.log(sll.remove(100));
+  console.log(sll.length);
+  console.log(sll.head?.val);
+  console.log(sll.head?.next?.val);
+  console.log(sll.head?.next?.next?.val);
 }

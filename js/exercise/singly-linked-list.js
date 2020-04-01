@@ -1,6 +1,7 @@
 "use strict";
 var exercise;
 (function (exercise) {
+    var _a, _b, _c, _d, _e, _f, _g;
     class Node {
         constructor(value) {
             this.val = value;
@@ -121,6 +122,32 @@ var exercise;
             currentNode.val = value;
             return true;
         }
+        remove(index) {
+            let curNode;
+            let preNode = null;
+            let curIdx = 0;
+            if (this.length === 0 || index < 0 || index >= this.length) {
+                return undefined;
+            }
+            curNode = this.head;
+            while (curIdx < this.length && curNode) {
+                if (curIdx === index) {
+                    break;
+                }
+                curIdx++;
+                preNode = curNode;
+                curNode = curNode.next;
+            }
+            if (preNode) {
+                preNode.next = curNode.next;
+            }
+            else {
+                this.head = curNode.next;
+            }
+            curNode.next = null;
+            this.length--;
+            return curNode;
+        }
     }
     let sll = new SinglyLinkedList();
     sll
@@ -128,9 +155,11 @@ var exercise;
         .push(10)
         .push(15)
         .push(20);
-    console.log(sll.insert(2, 12));
-    console.log(sll.insert(100, 12));
-    console.log(sll.insert(5, 25));
-    console.log("");
+    console.log((_a = sll.remove(2)) === null || _a === void 0 ? void 0 : _a.val);
+    console.log(sll.remove(100));
+    console.log(sll.length);
+    console.log((_b = sll.head) === null || _b === void 0 ? void 0 : _b.val);
+    console.log((_d = (_c = sll.head) === null || _c === void 0 ? void 0 : _c.next) === null || _d === void 0 ? void 0 : _d.val);
+    console.log((_g = (_f = (_e = sll.head) === null || _e === void 0 ? void 0 : _e.next) === null || _f === void 0 ? void 0 : _f.next) === null || _g === void 0 ? void 0 : _g.val);
 })(exercise || (exercise = {}));
-//# sourceMappingURL=sll.js.map
+//# sourceMappingURL=singly-linked-list.js.map
