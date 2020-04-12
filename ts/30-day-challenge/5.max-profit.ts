@@ -26,69 +26,15 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
 function maxProfit(prices: number[]): number {
-  let sells: number[][] = [];
-  let maxes: number[] = [];
+  let maxProfit: number = 0;
 
-  for (let i = 0; i < prices.length; i++) {
-    sells[i] = [];
-    maxes[i] = -1;
-
-    for (let j = i + 1; j < prices.length; j++) {
-      if (prices[j] > prices[i]) {
-        sells[i].push(j);
-      }
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      maxProfit += prices[i] - prices[i - 1];
     }
   }
 
-  maxes[prices.length - 1] = 0;
-
-  function findMaxProfit(
-    inputIdx: number,
-    prices: number[],
-    sells: number[][]
-  ): number {
-    if (inputIdx > prices.length - 1) {
-      return 0;
-    }
-
-    if (maxes[inputIdx] > -1) {
-      return maxes[inputIdx];
-    }
-
-    let startIdx: number;
-    let endIdx: number;
-    let maxProfit: number = 0;
-    let subMaxProfit: number;
-    let tmpProfit: number;
-    let subTmpProfit: number;
-
-    for (let i = inputIdx; i < prices.length; i++) {
-      startIdx = i;
-      subMaxProfit = 0;
-
-      for (let j = 0; j < sells[i].length; j++) {
-        endIdx = sells[startIdx][j];
-        tmpProfit = prices[endIdx] - prices[startIdx];
-        subTmpProfit = findMaxProfit(endIdx + 1, prices, sells);
-
-        if (subMaxProfit < tmpProfit + subTmpProfit) {
-          subMaxProfit = tmpProfit + subTmpProfit;
-        }
-      }
-
-      if (maxProfit < subMaxProfit) {
-        maxProfit = subMaxProfit;
-      }
-    }
-
-    maxes[inputIdx] = maxProfit;
-
-    return maxProfit;
-  }
-
-  let result = findMaxProfit(0, prices, sells);
-
-  return result;
+  return maxProfit;
 }
 
 console.log(maxProfit([3, 2, 6, 5, 0, 3])); // 7
