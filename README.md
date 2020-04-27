@@ -92,6 +92,9 @@ Solve leetcode problems with typescript
 - divide and conquer
 - overlapping subproblems: can break down the problem onto subproblems reused several time
 - optimal substructure: optimal solution can be constructed from its subproblems' one.
+- tip
+  - dp array is zero array with column length plus one
+  - previous value is pre-saved current dp value
 
 #### Memorization
 - store and then return cached result for the same input
