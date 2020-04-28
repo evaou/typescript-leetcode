@@ -2,3 +2,6 @@ node_modules
 **/*.map
 .vscode
 package-lock.json
+ts/test/*.ts
+js/test/*.js
+js/test/*.js.map
